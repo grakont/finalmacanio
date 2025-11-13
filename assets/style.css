@@ -1,1 +1,259 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
 
+:root {
+  --macan-red: #e50914;
+  --macan-dark: #0b0b0b;
+  --macan-white: #fff;
+}
+
+/* ====== BASE ====== */
+html, body {
+  height: 100%;
+  background: #000;
+  color: var(--macan-white);
+  display: flex;
+  flex-direction: column;
+  font-family: "Arial", sans-serif;
+}
+
+/* ====== NAVBAR ====== */
+.navbar, footer {
+  background: #000 !important;
+  border-bottom: 2px solid var(--macan-red);
+}
+footer { border-top: 2px solid var(--macan-red); }
+.nav-link { color: #ccc !important; }
+.nav-link:hover, .nav-link.active { color: #fff !important; }
+
+/* ====== BUTTONS ====== */
+.btn-primary, .btn-outline-primary:hover {
+  background: var(--macan-red);
+  border-color: var(--macan-red);
+  color: #fff;
+  box-shadow: 0 0 18px rgba(229, 9, 20, 0.45);
+}
+.btn-outline-primary {
+  border-color: var(--macan-red);
+  color: var(--macan-red);
+}
+
+/* ====== HERO SECTION ====== */
+.hero-video-wrap {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+}
+.hero-video-wrap video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(.5) contrast(1.1);
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 60% at 50% 40%,
+              rgba(229, 9, 20, .15) 0%, rgba(0,0,0,.6) 60%, rgba(0,0,0,.9) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+.hero-title { text-shadow: 0 4px 30px rgba(0, 0, 0, .9); }
+.hero-sub { color: #ddd; }
+
+/* ====== COUNTDOWN ====== */
+#countdown {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+#countdown .unit {
+  background: rgba(0,0,0,.55);
+  border: 1px solid #111;
+  padding: .6rem .9rem;
+  border-radius: .5rem;
+  min-width: 86px;
+}
+#countdown .num { font-size: 1.75rem; font-weight: 800; }
+#countdown .label { font-size: .75rem; color: #bbb; text-transform: uppercase; }
+#countdownBarWrap {
+  margin-top: .8rem;
+  height: 8px;
+  background: #111;
+  border: 1px solid #181818;
+  border-radius: 999px;
+  overflow: hidden;
+}
+#countdownBar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, rgba(229,9,20,.4), rgba(229,9,20,1));
+  transition: width .6s ease;
+}
+
+/* ====== MOMENTS ====== */
+.moment {
+  position: relative;
+  overflow: hidden;
+  background: #0b0b0b;
+  border: 1px solid #111;
+}
+.moment .overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  background: linear-gradient(180deg, rgba(229,9,20,0), rgba(229,9,20,.18));
+}
+.moment .caption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  display: none;
+  background: rgba(0,0,0,.7);
+  padding: .8rem 1rem;
+  border-top: 1px solid rgba(229,9,20,.35);
+}
+
+/* ====== TITLES & CARDS ====== */
+.section-title {
+  font-weight: 800;
+  border-left: 6px solid var(--macan-red);
+  padding-left: .6rem;
+}
+.card {
+  background: #0b0b0b;
+  border: 1px solid #111;
+}
+.badge-upcoming { background: var(--macan-red); }
+.badge-soldout {
+  background: transparent;
+  border: 1px solid var(--macan-red);
+  color: var(--macan-red);
+}
+
+/* ====== CURSOR ====== */
+.cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  background: radial-gradient(circle,
+              rgba(229,9,20,.8) 0%, rgba(229,9,20,.2) 60%, rgba(229,9,20,0) 100%);
+  mix-blend-mode: screen;
+  transform: translate(-50%, -50%);
+}
+
+/* ====== ANIMATIONS ====== */
+.reveal { opacity: 0; transform: translateY(16px); transition: .5s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ====== MODALS ====== */
+.modal-content {
+  background: #0b0b0b !important;
+  color: #fff !important;
+  border: 1px solid #e50914;
+}
+.modal-header {
+  border-bottom: 1px solid rgba(229,9,20,0.4);
+}
+.modal-body .form-control {
+  background: #111;
+  border-color: #333;
+  color: #fff;
+}
+.modal-body .form-control:focus {
+  border-color: #e50914;
+  box-shadow: 0 0 6px rgba(229,9,20,0.5);
+}
+.modal-body input,
+.modal-body label,
+.modal-body input::placeholder {
+  color: #fff !important;
+}
+.moment {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #111;
+  border-radius: 10px;
+  background: #0b0b0b;
+}
+.moment img {
+  width: 100%;
+  height: 300px; /* всё одинаково */
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.moment:hover img {
+  transform: scale(1.05);
+}
+/* ===== MY TICKETS TABLE STYLING ===== */
+.table-dark {
+  background-color: #111;
+  color: #fff;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table-dark th {
+  background-color: #1a1a1a;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.table-dark td {
+  background-color: #0e0e0e;
+  border-top: 1px solid #222;
+  padding: .8rem .9rem;
+}
+
+.table-dark tbody tr:nth-child(even) {
+  background-color: rgba(229, 9, 20, 0.08);
+}
+
+.table-dark tbody tr:hover {
+  background-color: rgba(229, 9, 20, 0.2);
+  transition: background-color 0.3s ease;
+}
+/* ===== LIGHT/DARK THEMES ===== */
+body.light-theme {
+  background: #fafafa;
+  color: #111;
+}
+body.light-theme .navbar,
+body.light-theme footer {
+  background: #fff !important;
+  color: #111;
+  border-color: #e50914;
+}
+body.light-theme .card,
+body.light-theme .table-dark {
+  background: #fff;
+  color: #111;
+}
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .hero-title { font-size: 1.8rem; }
+  .hero-sub { font-size: 1rem; }
+}
+
+@media (max-width: 600px) {
+  .section-title { font-size: 1.25rem; }
+  body { font-size: 0.9rem; }
+  .btn { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
+}
